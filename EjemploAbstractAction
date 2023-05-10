@@ -1,0 +1,36 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+
+public class EjemploAbstractAction extends JFrame {
+
+    public EjemploAbstractAction() {
+        super("Ejemplo AbstractAction");
+
+        // Creamos un botón y le asignamos la acción
+        JButton boton = new JButton(new MensajeAction("Haz clic aquí"));
+        add(boton);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    // Clase que define la acción a realizar al hacer clic en el botón
+    private class MensajeAction extends AbstractAction {
+
+        public MensajeAction(String nombre) {
+            super(nombre);
+        }
+
+        // Método que se ejecutará al hacer clic en el botón
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("¡Hola mundo!");
+        }
+    }
+
+    public static void main(String[] args) {
+        new EjemploAbstractAction();
+    }
+}
